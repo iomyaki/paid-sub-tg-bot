@@ -28,8 +28,7 @@ async def main() -> None:
     bot = Bot(token=config.BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 
     scheduler = AsyncIOScheduler(timezone=config.TIMEZONE)
-    #scheduler.add_job(date_check, "cron", hour="9", kwargs={"bot": bot})
-    scheduler.add_job(date_check, "cron", minute="22", kwargs={"bot": bot})  # for debugging
+    scheduler.add_job(date_check, "cron", hour="9", kwargs={"bot": bot})
     scheduler.start()
 
     # And the run events dispatching
